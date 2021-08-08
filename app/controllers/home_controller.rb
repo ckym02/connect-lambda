@@ -10,6 +10,7 @@ class HomeController < ApplicationController
       result.save!
     end
 
+    # TODO: undefined method `message' for nil:NilClass
     @data = TestResult.last.message
   end
 end
