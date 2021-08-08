@@ -10,6 +10,20 @@ x-rails-base: &rails-base
     - bundle:/usr/local/bundle
 
 services:
+  db:
+    image: mysql:8.0.21
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - '63306:3306'
+    volumes:
+      - db:/var/lib/mysql
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      TZ: 'Asia/Tokyo'
+    cap_add:
+      - SYS_NICE
+    networks:
+      - default
   app:
     <<: *rails-base
     tty: true
@@ -20,3 +34,4 @@ services:
 
 volumes:
   bundle:
+  db:
