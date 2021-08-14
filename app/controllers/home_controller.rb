@@ -12,6 +12,6 @@ class HomeController < ApplicationController
     end
 
     # TODO: undefined method `message' for nil:NilClass
-    @data = TestResult.last.message
+    @test_results = TestResult.last
   end
 end
