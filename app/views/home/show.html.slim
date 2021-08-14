@@ -1,2 +1,9 @@
-h3
-  = @data
+table style="border:1px; margin-bottom: 10px; width: 40%;"
+  thead
+    tr
+      th = '開始時間'
+      th = '終了時間'
+  tbody style="text-align:center;"
+    tr
+      td = @test_results.start_time
+      td = @test_results.end_time
